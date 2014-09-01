@@ -23,7 +23,7 @@ local function trademachine_after_place_node(pos, placer, itemstack, pointed_thi
 	meta:set_string("buyer_formspec",
         "size[13,10;]"..
         "list[current_name;selector;0.5,6.5;3,3;]"..
-		"button[5,4;3,2;purchace;Trade]"..
+		"button[5,4;3,2;purchase;Trade]"..
 		"list[current_name;sale_memory;1,2;3,3;]"..
 		"list[current_name;buy_memory;9,2;3,3;]"..
 		"image[1,1;3,1;selling.png]"..
@@ -48,7 +48,7 @@ local function trademachine_on_rightclick(pos, node, player, itemstack, pointed_
 	if player:get_player_name() ~= meta:get_string("owner") then
 		--Formspec for buyer
 		form = "size[13,10;]"..
-		"button[5,4;3,2;purchace;Trade]"..
+		"button[5,4;3,2;purchase;Trade]"..
 		"list[nodemeta:"..pos["x"]..","..pos["y"]..","..pos["z"]..";sale_memory;1,2;3,3;]"..
 		"list[nodemeta:"..pos["x"]..","..pos["y"]..","..pos["z"]..";buy_memory;9,2;3,3;]"..
 		"image[1,1;3,1;buyer.png]"..
@@ -122,7 +122,7 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 			"list[current_player;main;4.5,6;8,4;]"
 			minetest.show_formspec(player:get_player_name(), "Trade Machine", form)
 		end
-		if fields.purchace == "Trade" then
+		if fields.purchase == "Trade" then
 			local pinv = player:get_inventory()
 			local buy_stack = inv:get_stack("buy_memory",0)
 			local sell_stack = inv:get_stack("sale_memory",0)
