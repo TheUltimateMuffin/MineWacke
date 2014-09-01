@@ -33,7 +33,7 @@ local function trademachine_after_place_node(pos, placer, itemstack, pointed_thi
         "list[current_player;main;4.5,6;8,4;]")
 	--meta:set_string("formspec",meta:get_string("setup_formspec"))
 	meta:set_string("infotext", "Trade Machine")
-	meta:set_string("owner", placer:get_player_name())
+	meta:set_string("owner", player:get_player_name())
 	local inv = meta:get_inventory()
 	inv:set_size("main", 14*5)
 	inv:set_size("selector", 3*3)
